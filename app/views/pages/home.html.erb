@@ -1,2 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-container">
+  <div class="split left">
+    <h1>Real Estate</h1>
+      <%= link_to "Coming Soon", realestate_path, class: 'home-button' %>
+  </div>
+  <div class="split right">
+    <h1>Web Development</h1>
+    <%= link_to "Read More", programming_path, class: 'home-button' %>
+  </div>
+</div>
+
+<script>
+const left = document.querySelector(".left");
+const right = document.querySelector(".right");
+const container = document.querySelector(".home-container");
+
+left.addEventListener("mouseenter", () => {
+  container.classList.add("hover-left");
+});
+
+left.addEventListener("mouseleave", () => {
+  container.classList.remove("hover-left");
+});
+
+right.addEventListener("mouseenter", () => {
+  container.classList.add("hover-right");
+});
+
+right.addEventListener("mouseleave", () => {
+  container.classList.remove("hover-right");
+});
+
+</script>

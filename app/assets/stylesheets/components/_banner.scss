@@ -1,0 +1,35 @@
+.program-top{
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url("https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  height: 100vh;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+    p {
+    font-size: 25px;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    text-shadow:5px 5px 10px black;
+    position: relative;
+    }
+    h1 {
+      font-size: 4rem;
+      color: #fff;
+      white-space: nowrap;
+      text-shadow:5px 5px 10px black;
+      }
+    i {
+       // padding-top: 400px;
+       cursor: pointer;
+    }
+}
+.headers-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.js-typed {
+  display: flex;
+  justify-content: center;
+}

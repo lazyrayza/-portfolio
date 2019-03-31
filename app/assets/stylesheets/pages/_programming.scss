@@ -1,0 +1,40 @@
+.program-bottom {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background: white;
+  // justify-content: space-around;
+}
+.program-middle {
+  height: 70vh;
+  display: flex;
+  justify-content: space-around;
+  background: none;
+}
+.middle-info {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.skills {
+  width: 50%;
+  padding-top: 200px;
+}
+.bottom-info {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+// .bottom-info-skills {
+//     overflow: scroll;
+//   }
+
+.second-info {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.projects {
+  height: 100vh;
+}
