@@ -4,7 +4,7 @@
   width:100%;
   height:75px;
   text-align: center;
-  background-color: #171B37;
+  background-color:#4286f4;
   padding: 50px;
   color: white;
   li {
@@ -13,6 +13,12 @@
       text-decoration: none;
       color: white;
       margin-right: 50px;
+    }
+    // i {
+    //   padding: 12px 0px 12px 12px;
+    // }
+    #scroll-top {
+      position: absolute;
     }
   }
 }

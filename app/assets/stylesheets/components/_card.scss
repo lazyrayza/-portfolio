@@ -1,7 +1,11 @@
 .cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .card-category {

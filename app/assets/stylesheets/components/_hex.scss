@@ -40,6 +40,7 @@ img{
    transition:transform 0.2s;
    position:absolute;
    cursor:pointer;
+   -webkit-filter: grayscale(50%);
 }
 
 
@@ -56,7 +57,7 @@ img{
   z-index:1;
   transform:rotate(45deg);
   transition:transform 0.5s;
-     background-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-shadow: 0 0 15px rgba(0,0,0,0.2);
 
 }
 
@@ -84,6 +85,10 @@ img{
   top:0;
   left:470px;
 }
+.clipped-border:nth-child(6){
+  top:385px;
+  left:235px;
+}
 
 #clipped {
 -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
@@ -95,5 +100,7 @@ clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
   transform:scale(1.5);
   transition:transform 0.5s;
   z-index:10;
+  -webkit-filter: grayscale(0%);
+
 }
 

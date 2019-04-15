@@ -3,7 +3,10 @@
   width: 100vw;
   display: flex;
   background: white;
-  // justify-content: space-around;
+  justify-content: space-around;
+}
+.second-info{
+  margin: 40px;
 }
 .program-middle {
   height: 70vh;
@@ -15,6 +18,11 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
+  justify-content: space-around;
+  .intro {
+    width: 60%;
+    margin: auto;
+  }
 }
 .skills {
   width: 50%;
@@ -36,5 +44,64 @@ justify-content: center;
 }
 
 .projects {
-  height: 100vh;
+  height: 100%;
+    background: white;
+    // display: flex;
+    h1 {
+
+    }
+  i{
+   color: #4286f4;
+   padding: 2px;
+  }
+  .projects-title{
+    display: flex;
+    align-self: center;
+
+  .title-box{
+    align-item: center;
+  }
+  }
+}
+
+.dark-bottom{
+    background-color: #404042;
+    color: white;
+}
+.top-link {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: relative;
+    top: -33px;
+    left: -151px;
+    i {
+      color: #4286f4;
+      cursor: pointer;
+    }
+  }
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.social {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    a {
+    font-size: 4rem;
+    color: #FAFAFA;
+    opacity: .2;
+    transition: ease 300ms;
+    }
+a:hover {
+  color: #4286f4;
+}
 }
