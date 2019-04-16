@@ -41,6 +41,7 @@ img{
    position:absolute;
    cursor:pointer;
    -webkit-filter: grayscale(50%);
+
 }
 
 
@@ -59,11 +60,13 @@ img{
   transition:transform 0.5s;
   background-shadow: 0 0 15px rgba(0,0,0,0.2);
 
+
 }
 
 .clipped-border:hover:before{
   transform: translate(-100px,400%) rotate(45deg);
   transition:transform 0.5s;
+
 }
 
 .clipped-border:nth-child(2){
@@ -93,6 +96,7 @@ img{
 #clipped {
 -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
 clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+
 
 }
 

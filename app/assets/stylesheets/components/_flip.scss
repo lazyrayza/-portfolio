@@ -1,5 +1,6 @@
 .flip {
     position: relative;
+    box-shadow: 15px 15px 5px 2px rgba(232,232,232,0.61);
     >.front,
     >.back {
         display: block;
@@ -91,3 +92,22 @@ text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px r
   padding-right: 220px;
 
 }
+
+.visit-btn {
+  border-radius: 8px;
+  width: 45%;
+  height: 25%;
+  background-color: #4286f4;
+  margin: auto;
+  text-align: center;
+  padding: 14px 48px;
+&:hover{
+  // height: 40%;
+  // width: 60%;
+  transition: ease 300ms;
+  padding: auto;
+  background: linear-gradient(45deg, #4286f4, #6ECAD6);
+}
+}
+
+
