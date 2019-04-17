@@ -1,5 +1,5 @@
 .program-top{
-  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url("https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-image: linear-gradient(rgba(0.1,0.1,0.1,0.5),rgba(0.5,0.5,0.9,0.9)), url("https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   height: 100vh;
   color: #eee;
@@ -17,6 +17,8 @@
       color: #fff;
       white-space: nowrap;
       text-shadow:5px 5px 10px black;
+          text-align: center;
+
       }
     i {
        // padding-top: 400px;
@@ -32,4 +34,43 @@
 .js-typed {
   display: flex;
   justify-content: center;
+}
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .program-top h1 {
+    transform: scale(0.4);
+  }
+  .program-top p {
+    transform: scale(0.7);
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .program-top h1 {
+    transform: scale(0.7);
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .program-top h1 {
+    transform: scale(0.8);
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .program-top h1 {
+    transform: scale(0.9);
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .program-top h1 {
+    transform: scale(1);
+  }
 }

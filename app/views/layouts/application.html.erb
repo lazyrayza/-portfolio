@@ -14,10 +14,16 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <% if action_name == "home" %>
+      <%= render 'shared/navbar' %>
+    <% elsif action_name == "programming"%>
+      <%= render 'shared/navbar_pages' %>
+    <% end %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <%= render 'shared/footer' %>
+    <% if action_name == "programming" %>
+      <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>

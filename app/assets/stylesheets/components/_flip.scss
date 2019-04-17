@@ -1,6 +1,7 @@
 .flip {
     position: relative;
     box-shadow: 15px 15px 5px 2px rgba(232,232,232,0.61);
+    // margin: 50px;
     >.front,
     >.back {
         display: block;
@@ -51,6 +52,7 @@
     margin-right: 2px;
     margin-bottom: 1em;
     width: 400px;
+    margin: 50px;
     >.front,
     >.back {
       display: block;
@@ -75,23 +77,23 @@ text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px r
 }
 
 
-#flip1{
-  align-self: flex-start;
-  padding-left: 220px;
-}
-#flip2{
-  align-self: flex-end;
-  padding-right: 220px;
-}
-#flip3{
-  align-self: flex-start;
-  padding-left: 220px;
-}
-#flip4{
-  align-self: flex-end;
-  padding-right: 220px;
+// #flip1{
+//   align-self: flex-start;
+//   padding-left: 300px;
+// }
+// #flip2{
+//   align-self: flex-end;
+//   padding-right: 300px;
+// }
+// #flip3{
+//   align-self: flex-start;
+//   padding-left: 300px;
+// }
+// #flip4{
+//   align-self: flex-end;
+//   padding-right: 300px;
 
-}
+// }
 
 .visit-btn {
   border-radius: 8px;
