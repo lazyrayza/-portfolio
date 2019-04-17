@@ -112,7 +112,7 @@
         <h1>Languages & Frameworks</h1>
     </div>
     <div class="skills">
-      <div class = "gallery">
+      <!-- <div class = "gallery">
         <div class="clipped-border" id="1">
           <img src="https://cdn2.iconfinder.com/data/icons/love-and-valentine-3-4/65/142-512.png" id="clipped" title="Ruby-on-rail">
         </div>
@@ -131,7 +131,7 @@
         <div class="clipped-border" id="6">
           <img src="//inf3cti0n95.github.io/img/html5.svg" id="clipped" title="Python">
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -189,8 +189,202 @@ function scrollToContact() {
   elmnt2.scrollIntoView({behavior: "smooth"}); // Bottom
 }
 </script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
+var w = 1200, h = 500;
+
+      var labelDistance = 0;
+
+var vis = d3.select(".skills").append("svg:svg").attr("width", w).attr("height", h);
+      var output = d3.select(".skills").append("div");
+
+      var nodes = [];
+var languages = {};
+languages["Love"] = ["Ruby", "Ruby-on-rails", "Python"];
+languages["Fun"] = ["Javascript","React","Redux"];
+languages["Intense Hatred"] = ["SCSS"];
+languages["Learning"] = ["Python"];
+
+      var labelAnchors = [];
+      var labelAnchorLinks = [];
+      var links = [];
+
+for(var i in languages){
+    var node = {
+          label : i,
+          category: "yes"
+        };
+        nodes.push(node);
+        labelAnchors.push({
+          node : node
+        });
+        labelAnchors.push({
+          node : node
+        });
+for(var j = 0; j < languages[i].length; j++) {
+        var node = {
+          label : languages[i][j],
+          category: "no"
+        };
+        nodes.push(node);
+        labelAnchors.push({
+          node : node
+        });
+        labelAnchors.push({
+          node : node
+        });
+      };
+
+}
+
+var count1 = 0;
+var count2 = 1;
+for(var i in languages){
+  for(var j = 0; j < languages[i].length; j++){
+    links.push({
+              source : count1,
+              target : count2,
+              weight : Math.random()
+    });
+    count2++;
+  }
+  count1 = count2;
+  count2 = count1 + 1;
+}
+      for(var i = 0; i < nodes.length; i++) {
+
+        labelAnchorLinks.push({
+          source : i * 2,
+          target : i * 2 + 1,
+          weight : 1
+        });
+      };
+
+      var force = d3.layout.force().size([w, h]).nodes(nodes).links(links).gravity(1).linkDistance(50).charge(-3000).linkStrength(function(x) {
+        return x.weight * 10
+      });
+
+
+      force.start();
+
+      var force2 = d3.layout.force().nodes(labelAnchors).links(labelAnchorLinks).gravity(0).linkDistance(0).linkStrength(8).charge(-100).size([w, h]);
+      force2.start();
+
+      var link = vis.selectAll("line.link").data(links).enter().append("svg:line").attr("class", "link").style("stroke", "#CCC");
+
+var categoryData = force.nodes().filter(function(d){if(d.category == "yes"){return d;}});
+
+var leafData = force.nodes().filter(function(d){if(d.category != "yes"){return d;}});
+
+var node = vis.selectAll("g.node").data(force.nodes()).enter().append("svg:g").attr("class", "node");
+vis.selectAll("g").filter(function(d){
+  if(d.category == "yes"){return d;}
+}).append("svg:circle").attr("r", 8).style("fill", "#555").style("stroke", "#DD4B39").style("stroke-width", 4);
+
+
+vis.selectAll("g").filter(function(d){
+  if(d.category == "no"){return d;}
+}).append("svg:circle").attr("r", 5).style("fill", "#DD4b39").style("stroke", "#FFF").style("stroke-width", 3)
+.on("mouseover", function(d){
+  output.text(d.label).attr("class","animated fadeInLeft");
+})
+.on("mouseout", function(){
+  output.text("").attr("class","animated fadeOutRight")
+});
+  node.call(force.drag);
+
+
+
+
+
+      var anchorLink = vis.selectAll("line.anchorLink").data(labelAnchorLinks)//.enter().append("svg:line").attr("class", "anchorLink").style("stroke", "#999");
+
+      var anchorNode = vis.selectAll("g.anchorNode").data(force2.nodes()).enter().append("svg:g").attr("class", "anchorNode");
+      anchorNode.append("svg:circle").attr("r", 0).style("fill", "#FFF");
+        anchorNode.append("svg:text").text(function(d, i) {
+        return i % 2 == 0 ? "" : d.node.label
+      }).style("fill", "#555").style("font-family", "Arial").style("font-size", 12);
+
+      var updateLink = function() {
+        this.attr("x1", function(d) {
+          return d.source.x;
+        }).attr("y1", function(d) {
+          return d.source.y;
+        }).attr("x2", function(d) {
+          return d.target.x;
+        }).attr("y2", function(d) {
+          return d.target.y;
+        });
+
+      }
+
+      var updateNode = function() {
+        this.attr("transform", function(d) {
+          return "translate(" + d.x + "," + d.y + ")";
+        });
+
+      }
+
+
+      force.on("tick", function() {
+
+        force2.start();
+
+        node.call(updateNode);
+
+        anchorNode.each(function(d, i) {
+          if(i % 2 == 0) {
+            d.x = d.node.x;
+            d.y = d.node.y;
+          } else {
+            var b = this.childNodes[1].getBBox();
+
+            var diffX = d.x - d.node.x;
+            var diffY = d.y - d.node.y;
+
+            var dist = Math.sqrt(diffX * diffX + diffY * diffY);
+
+            var shiftX = b.width * (diffX - dist) / (dist * 2);
+            shiftX = Math.max(-b.width, Math.min(0, shiftX));
+            var shiftY = 5;
+            this.childNodes[1].setAttribute("transform", "translate(" + shiftX + "," + shiftY + ")");
+          }
+        });
+
+
+        anchorNode.call(updateNode);
+
+        link.call(updateLink);
+        anchorLink.call(updateLink);
+
+      });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
   // !function(a){var b="object"==typeof self&&self.self===self&&self||"object"==typeof global&&global.global===global&&global;"function"==typeof define&&define.amd?define(["exports"],function(c){b.ParticleNetwork=a(b,c)}):"object"==typeof module&&module.exports?module.exports=a(b,{}):b.ParticleNetwork=a(b,{})}(function(a,b){var c=function(a){this.canvas=a.canvas,this.g=a.g,this.particleColor=a.options.particleColor,this.x=Math.random()*this.canvas.width,this.y=Math.random()*this.canvas.height,this.velocity={x:(Math.random()-.5)*a.options.velocity,y:(Math.random()-.5)*a.options.velocity}};return c.prototype.update=function(){(this.x>this.canvas.width+20||this.x<-20)&&(this.velocity.x=-this.velocity.x),(this.y>this.canvas.height+20||this.y<-20)&&(this.velocity.y=-this.velocity.y),this.x+=this.velocity.x,this.y+=this.velocity.y},c.prototype.h=function(){this.g.beginPath(),this.g.fillStyle=this.particleColor,this.g.globalAlpha=.7,this.g.arc(this.x,this.y,1.5,0,2*Math.PI),this.g.fill()},b=function(a,b){this.i=a,this.i.size={width:this.i.offsetWidth,height:this.i.offsetHeight},b=void 0!==b?b:{},this.options={particleColor:void 0!==b.particleColor?b.particleColor:"#fff",background:void 0!==b.background?b.background:"#1a252f",interactive:void 0!==b.interactive?b.interactive:!0,velocity:this.setVelocity(b.speed),density:this.j(b.density)},this.init()},b.prototype.init=function(){if(this.k=document.createElement("div"),this.i.appendChild(this.k),this.l(this.k,{position:"absolute",top:0,left:0,bottom:0,right:0,"z-index":1}),/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.background))this.l(this.k,{background:this.options.background});else{if(!/\.(gif|jpg|jpeg|tiff|png)$/i.test(this.options.background))return console.error("Please specify a valid background image or hexadecimal color"),!1;this.l(this.k,{background:'url("'+this.options.background+'") no-repeat center',"background-size":"cover"})}if(!/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.particleColor))return console.error("Please specify a valid particleColor hexadecimal color"),!1;this.canvas=document.createElement("canvas"),this.i.appendChild(this.canvas),this.g=this.canvas.getContext("2d"),this.canvas.width=this.i.size.width,this.canvas.height=this.i.size.height,this.l(this.i,{position:"relative"}),this.l(this.canvas,{"z-index":"20",position:"relative"}),window.addEventListener("resize",function(){return this.i.offsetWidth===this.i.size.width&&this.i.offsetHeight===this.i.size.height?!1:(this.canvas.width=this.i.size.width=this.i.offsetWidth,this.canvas.height=this.i.size.height=this.i.offsetHeight,clearTimeout(this.m),void(this.m=setTimeout(function(){this.o=[];for(var a=0;a<this.canvas.width*this.canvas.height/this.options.density;a++)this.o.push(new c(this));this.options.interactive&&this.o.push(this.p),requestAnimationFrame(this.update.bind(this))}.bind(this),500)))}.bind(this)),this.o=[];for(var a=0;a<this.canvas.width*this.canvas.height/this.options.density;a++)this.o.push(new c(this));this.options.interactive&&(this.p=new c(this),this.p.velocity={x:0,y:0},this.o.push(this.p),this.canvas.addEventListener("mousemove",function(a){this.p.x=a.clientX-this.canvas.offsetLeft,this.p.y=a.clientY-this.canvas.offsetTop}.bind(this)),this.canvas.addEventListener("mouseup",function(a){this.p.velocity={x:(Math.random()-.5)*this.options.velocity,y:(Math.random()-.5)*this.options.velocity},this.p=new c(this),this.p.velocity={x:0,y:0},this.o.push(this.p)}.bind(this))),requestAnimationFrame(this.update.bind(this))},b.prototype.update=function(){this.g.clearRect(0,0,this.canvas.width,this.canvas.height),this.g.globalAlpha=1;for(var a=0;a<this.o.length;a++){this.o[a].update(),this.o[a].h();for(var b=this.o.length-1;b>a;b--){var c=Math.sqrt(Math.pow(this.o[a].x-this.o[b].x,2)+Math.pow(this.o[a].y-this.o[b].y,2));c>120||(this.g.beginPath(),this.g.strokeStyle=this.options.particleColor,this.g.globalAlpha=(120-c)/120,this.g.lineWidth=.7,this.g.moveTo(this.o[a].x,this.o[a].y),this.g.lineTo(this.o[b].x,this.o[b].y),this.g.stroke())}}0!==this.options.velocity&&requestAnimationFrame(this.update.bind(this))},b.prototype.setVelocity=function(a){return"fast"===a?1:"slow"===a?.33:"none"===a?0:.66},b.prototype.j=function(a){return"high"===a?5e3:"low"===a?2e4:isNaN(parseInt(a,10))?1e4:a},b.prototype.l=function(a,b){for(var c in b)a.style[c]=b[c]},b});
 
 // Initialisation
