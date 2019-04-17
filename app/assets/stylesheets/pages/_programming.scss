@@ -52,16 +52,18 @@
 }
 ///
 .program-bottom {
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   background: white;
-  justify-content: space-around;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .bottom-info {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 60px;
+    // margin-bottom: 60px;
     padding: 30px;
 
     h1 {
@@ -71,8 +73,15 @@
       margin-right:40px;
       }
   }
+  .top-skilss{
+    display:flex;
+    justify-content: space-around;
+  }
   .skills {
-    // padding: auto;
+    padding-left: 10%;
+    border-radius: 30%;
+      box-shadow: 0px 1px 43px 0px rgba(189,189,189,1);
+      width: 55%;
   }
 }
 ///

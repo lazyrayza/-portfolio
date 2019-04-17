@@ -111,27 +111,30 @@
     <div class="bottom-info">
         <h1>Languages & Frameworks</h1>
     </div>
-    <div class="skills">
-      <!-- <div class = "gallery">
-        <div class="clipped-border" id="1">
-          <img src="https://cdn2.iconfinder.com/data/icons/love-and-valentine-3-4/65/142-512.png" id="clipped" title="Ruby-on-rail">
-        </div>
-        <div class="clipped-border" id="2">
-          <img src="https://cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/ruby-on-rails-512.png" id="clipped" title="React">
-        </div>
-        <div class="clipped-border" id="3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1024px-Python-logo-notext.svg.png" id="clipped" title="HTML 5">
-        </div>
-          <div class="clipped-border" id="4">
-          <img src="https://pngimage.net/wp-content/uploads/2018/06/react-icon-png-7.png" id="clipped" title="Javascript">
-        </div>
-        <div class="clipped-border" id="5">
-          <img src="//inf3cti0n95.github.io/img/js.svg" id="clipped" title="Ruby">
-        </div>
-        <div class="clipped-border" id="6">
-          <img src="//inf3cti0n95.github.io/img/html5.svg" id="clipped" title="Python">
-        </div>
-      </div> -->
+    <div class="top-skilss">
+      <div class="skills">
+        <!-- <div class = "gallery">
+          <div class="clipped-border" id="1">
+            <img src="https://cdn2.iconfinder.com/data/icons/love-and-valentine-3-4/65/142-512.png" id="clipped" title="Ruby-on-rail">
+          </div>
+          <div class="clipped-border" id="2">
+            <img src="https://cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/ruby-on-rails-512.png" id="clipped" title="React">
+          </div>
+          <div class="clipped-border" id="3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1024px-Python-logo-notext.svg.png" id="clipped" title="HTML 5">
+          </div>
+            <div class="clipped-border" id="4">
+            <img src="https://pngimage.net/wp-content/uploads/2018/06/react-icon-png-7.png" id="clipped" title="Javascript">
+          </div>
+          <div class="clipped-border" id="5">
+            <img src="//inf3cti0n95.github.io/img/js.svg" id="clipped" title="Ruby">
+          </div>
+          <div class="clipped-border" id="6">
+            <img src="//inf3cti0n95.github.io/img/html5.svg" id="clipped" title="Python">
+          </div>
+        </div> -->
+      </div>
+
     </div>
   </div>
 
@@ -192,7 +195,7 @@ function scrollToContact() {
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
-var w = 1200, h = 500;
+var w = 700, h = 500;
 
       var labelDistance = 0;
 
@@ -280,12 +283,12 @@ var leafData = force.nodes().filter(function(d){if(d.category != "yes"){return d
 var node = vis.selectAll("g.node").data(force.nodes()).enter().append("svg:g").attr("class", "node");
 vis.selectAll("g").filter(function(d){
   if(d.category == "yes"){return d;}
-}).append("svg:circle").attr("r", 8).style("fill", "#555").style("stroke", "#DD4B39").style("stroke-width", 4);
+}).append("svg:circle").attr("r", 12).style("fill", "#555").style("stroke", "#4286f4").style("stroke-width", 12);
 
 
 vis.selectAll("g").filter(function(d){
   if(d.category == "no"){return d;}
-}).append("svg:circle").attr("r", 5).style("fill", "#DD4b39").style("stroke", "#FFF").style("stroke-width", 3)
+}).append("svg:circle").attr("r", 6).style("fill", "#6ECAD6").style("stroke", "#FFF").style("stroke-width", 2)
 .on("mouseover", function(d){
   output.text(d.label).attr("class","animated fadeInLeft");
 })
@@ -304,7 +307,7 @@ vis.selectAll("g").filter(function(d){
       anchorNode.append("svg:circle").attr("r", 0).style("fill", "#FFF");
         anchorNode.append("svg:text").text(function(d, i) {
         return i % 2 == 0 ? "" : d.node.label
-      }).style("fill", "#555").style("font-family", "Arial").style("font-size", 12);
+      }).style("fill", "#555").style("font-family", "Raleway").style("font-size", 16);
 
       var updateLink = function() {
         this.attr("x1", function(d) {
