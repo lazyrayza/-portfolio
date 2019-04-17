@@ -113,6 +113,9 @@
     </div>
     <div class="top-skilss">
       <div class="skills">
+        <!-- <div class="node-note">
+          <p> Movable Nodes</p>
+        </div> -->
         <!-- <div class = "gallery">
           <div class="clipped-border" id="1">
             <img src="https://cdn2.iconfinder.com/data/icons/love-and-valentine-3-4/65/142-512.png" id="clipped" title="Ruby-on-rail">
@@ -195,7 +198,7 @@ function scrollToContact() {
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
-var w = 700, h = 500;
+var w = 1200, h = 500;
 
       var labelDistance = 0;
 
@@ -307,7 +310,7 @@ vis.selectAll("g").filter(function(d){
       anchorNode.append("svg:circle").attr("r", 0).style("fill", "#FFF");
         anchorNode.append("svg:text").text(function(d, i) {
         return i % 2 == 0 ? "" : d.node.label
-      }).style("fill", "#555").style("font-family", "Raleway").style("font-size", 16);
+      }).style("fill", "#555").style("font-family", "Raleway").style("font-size", 19);
 
       var updateLink = function() {
         this.attr("x1", function(d) {
