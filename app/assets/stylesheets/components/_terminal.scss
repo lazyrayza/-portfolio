@@ -1,0 +1,464 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+ * -- BASE STYLES --
+ * Most of these are inherited from Base, but I want to change a few.
+ */
+body {
+    font-size: 16px;
+    line-height: 1.7em;
+    // color: #7f8c8d;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #34495e;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+ * -- LAYOUT STYLES --
+ * These are some useful classes which I will need
+ */
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+    text-align: center;
+}
+
+/*
+ * -- MENU STYLES --
+ * I want to customize how my .pure-menu looks at the top of the page
+ */
+
+.home-menu {
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+}
+.home-menu {
+    background: #141414;
+}
+.pure-menu.pure-menu-fixed {
+    /* Fixed menus normally have a border at the bottom. */
+    border-bottom: none;
+    /* I need a higher z-index here because of the scroll-over effect. */
+    z-index: 4;
+}
+
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 120%;
+}
+
+.home-menu .pure-menu-selected a {
+    color: white;
+}
+.pure-menu-selected .pure-menu-link, .pure-menu-selected .pure-menu-link:visited {
+  color: white;
+}
+
+.home-menu a {
+    color: #b8b8b8;
+}
+.home-menu li a:hover,
+.home-menu li a:focus {
+    background: none;
+    border: none;
+    color: #384D9D;
+}
+
+
+/*
+ * -- SPLASH STYLES --
+ * Thisc is the blue top section that appears on the page.
+ */
+
+.splash-container {
+    background: #F1F3F3;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    /* The following styles are required for the "scroll-over" effect */
+    width: 100%;
+    height: 82%;
+    top: 0;
+    left: 0;
+    position: fixed !important;
+}
+
+/*
+ * -- CONTENT STYLES --
+ * This represents the content area (everything below the blue section)
+ */
+
+/* We want to give the content area some more padding */
+.content {
+    padding: 1em 1em 13em;
+  position: relative;
+}
+
+/* This is the class used for the main content headers (<h2>) */
+.content-head {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
+
+/* This is a modifier class used when the content-head is inside a ribbon */
+.content-head-ribbon {
+    color: white;
+    margin-top: 0px;
+}
+
+/* This is the class used for the content sub-headers (<h3>) */
+.content-subhead {
+    color: #384D9D;
+}
+    .content-subhead i {
+        margin-right: 7px;
+    }
+
+/* This is the class used for the dark-background areas. */
+.works {
+    background: #212121;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+}
+#works {
+  margin-top: 200px;
+}
+
+/* This is the class used for the footer */
+.footer {
+    background: #111;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 48em) {
+    /* We can align the menu header to the left, but float the
+    menu items to the right. */
+    .home-menu {
+        text-align: left;
+    }
+        .home-menu ul {
+            float: right;
+        }
+
+    /* We increase the height of the splash-container */
+/*    .splash-container {
+        height: 500px;
+    }*/
+
+    /* We decrease the width of the .splash, since we have more width
+    to work with */
+    .splash {
+        width: 50%;
+        height: 50%;
+    }
+
+    .splash-head {
+        font-size: 250%;
+    }
+
+
+    /* We remove the border-separator assigned to .l-box-lrg */
+    .l-box-lrg {
+        border: none;
+    }
+
+}
+
+/*
+ * -- DESKTOP (AND UP) MEDIA QUERIES --
+ * On desktops and other large devices, we want to over-ride some
+ * of the mobile and tablet styles.
+ */
+@media (min-width: 78em) {
+    /* We increase the header font size even more */
+    .splash-head {
+        font-size: 300%;
+    }
+}
+/* New Styles starting with h1 */
+.heading {
+  color: #384D9D;
+  font-size: 3.6rem;
+  line-height: 4.6rem;
+  letter-spacing: -0.0325rem;
+}
+.split-left {
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    max-height: 50%;
+}
+.skills {
+  text-decoration: underline;
+}
+.mock {
+  box-shadow: 0 80px 100px -80px #000;
+}
+.icon {
+  padding: 12px;
+  margin: 5px;
+  color: #212121;
+  background: rgba(33,33,33,0.1);
+  border-radius: 50%;
+  display: inline-block;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.tone {
+  color: #212121;
+}
+
+.social-head {
+  padding-bottom: 15px;
+}
+.icon:hover {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+.shadow:before {
+      pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+}
+#works:before {
+      content: '';
+    width: 100%;
+    height: 16.3vw;
+    position: absolute;
+  top: 33vw;
+    left: 0;
+    z-index: 3;
+    background: url(https://cdn.rawgit.com/hjohnson02/bd6e0518d2d2b656181b2eea5650f149/raw/48ff6a2b8858b94c85ab3242a64b603f1bf22f0a/bg-top.svg) no-repeat 0 0;
+    background-size: cover;
+}
+.slash {
+padding-top: 11em;
+    position: relative;
+}
+.slash:after {
+    content: '';
+    width: 100%;
+    height: 16.3vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: url(https://cdn.rawgit.com/hjohnson02/8623a75a46627be7382d7108979a85d1/raw/a8a35860f53c8f2a5dbece250269600bcc8e4743/bg-bottom.svg) no-repeat 0 0;
+    background-size: cover;
+}
+.social {
+  padding: 1em 1em 3em;
+}
+.project-grow:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.project-grow {
+    display: inline-block;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+.mr-robot {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+-webkit-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+transform: translateX(-50%);
+   max-height: 50%;
+}
+.programming-languages {
+  position: absolute;
+  display: inline-flex;
+  bottom: 5%;
+}
+#language {
+  visibility: hidden;
+}
+.bio {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.personal {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.me {
+  box-shadow: 6px 24px 61px -12px rgba(0,0,0,.49);
+}
+.heading a {
+  text-decoration: none;
+  color: #384D9D;
+}
+a {
+  text-decoration: none;
+}
+
+.terminal-window {
+  text-align: left;
+  width: 90%;
+  height: 360px;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  position: relative;
+}
+
+.terminal-window header {
+  background: #E0E8F0;
+  height: 30px;
+  border-radius: 8px 8px 0 0;
+  padding-left: 10px;
+}
+
+.terminal-window header .button {
+  width: 12px;
+  height: 12px;
+  margin: 10px 4px 0 0;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.terminal-window header .button.green {
+  background: #3BB662;
+}
+
+.terminal-window header .button.yellow {
+  background: #E5C30F;
+}
+
+.terminal-window header .button.red {
+  background: #E75448;
+}
+
+.terminal-window section.terminal {
+  color: white;
+  font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
+  font-size: 11pt;
+  background: #30353A;
+  padding: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  top: 30px;
+  bottom: 0;
+  overflow: auto;
+}
+.frost {
+  color:#81A1C1;
+}
+.slime {
+  color:#A3BE8C;
+}
+.night {
+  color:#4C566A;
+}
+.ghost {
+  color: #aaa;
+}
+@media screen and (min-width: 35.5em) {
+  .heading {
+  font-size: 2.2em;
+  line-height: 1.6em;
+  letter-spacing: -0.0325em;
+  }
+  .terminal-window {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 48em) {
+  .heading {
+  font-size: 2.2em;
+  line-height: 1.8em;
+  letter-spacing: -0.0325em;
+  }
+   .split-left {
+    padding-top: 1%;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+   .terminal-window {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 64em) {
+  .heading {
+  font-size: 2.7em;
+  line-height: 1.8em;
+  letter-spacing: -0.0325em;
+  }
+  .terminal-window {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 86.6em) {
+  .content {
+    padding: 1em 1em 18em;
+  }
+  .slash {
+    padding-top: 16em;
+  }
+  .split-left {
+    padding-top: 1%;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}

@@ -18,10 +18,39 @@
   <div class="program-middle" id="content">
     <div class="middle-info">
       <div class="intro">
-        <p>Whatever has driven you to my page, welcome 👋🏽!</p>
+        <div class="terminal-window">
+          <header>
+            <div class="button green"></div>
+            <div class="button yellow"></div>
+            <div class="button red"></div>
+          </header>
+            <section class="terminal">
+              <span class ="frost">const</span> welcome <span class="frost">=</span> "<span class ="slime" id="welcome-typed-text"></span>";<br />
+              <span class ="frost">const</span> name <span class="frost">=</span> "<span class ="slime">Raza Pirbhai</span>";<br />
+              <span class="frost">let</span> location <span class ="frost">=</span> "<span class ="slime">Mauritius 🇲🇺, Tanzania 🇹🇿 or the UK 🇬🇧 </span>";<br /><br />
+                <span class="night">// education</span><br />
+                {<br />
+                &nbsp;&nbsp; "<span class="slime">school</span>": "<span class="slime">Le Wagon, London</span>",<br />
+                &nbsp;&nbsp; "<span class="slime">major</span>": "<span class="slime">Full-tack coding bootcamp</span>",<br />
+                &nbsp;&nbsp; "<span class="slime">graduating</span>": "<span class="slime">March 2019</span>"<br />
+                }<br /><br />
+              <span class="night">// hobbies &amp;&amp; interests</span><br />
+                ["<span class="slime">If I’m not fixing bugs or learning about algorithms, you can probably find me...</span>"]<br />
+                [ "<span class="slime">on a golf course</span>", "<span class="slime">diving at sea</span>", "<span class="slime">or at the front of a protest ✊🏽</span>"]<br /><br />
+                    <span class="night">// programming languages</span><br />
+                [ "<span class="slime">Ruby</span>", "<span class="slime">Javascript</span>", "<span class="slime">Python</span>"]<br /><br />
+
+                <span class="night">// frameworks</span> <br />
+                [ "<span class="slime">Rails</span>", "<span class="slime">React</span>",  "<span class="slime">bootstrap</span>"]<br /><br />
+  </section>
+</div>
+
+
+
+       <!--  <p>Whatever has driven you to my page, welcome 👋🏽!</p>
         <p>I'm Raza, real estate enthusiast and now also turned Full-Stack web developer. You can find me in either Mauritius 🇲🇺, Tanzania 🇹🇿 or the UK 🇬🇧 (but not at the same time, as unfortunately teleportation isn’t a thing yet). </p>
         <p>I've always had a passion for building, whether it be bricks & mortar or models, views & controllers. If I’m not fixing bugs or learning about algorithms, you can probably find me on a golf course, diving at sea or at the front of a protest.</p>
-        <p>Check below for my latest projects!</p>
+        <p>Check below for my latest projects!</p> -->
       </div>
     </div>
   </div>
@@ -33,7 +62,6 @@
       </div>
     </div>
     <div class="cards">
-      <a href="https://razscocktails.herokuapp.com/" id="flip1">
         <div class="flip">
           <div class="front">
              <h1 class="text-shadow">Mr Cocktail</h1>
@@ -45,10 +73,11 @@
              <!-- <h3><strong>Languages Used</strong></h3> -->
              <i class="fab fa-js fa-2x" title="Javascript"></i>
              <i class="fas fa-gem fa-2x" title="Ruby"></i>
-             <div class="visit-btn"> Visit</div>
+             <a href="https://razscocktails.herokuapp.com/" id="flip1">
+              <div class="visit-btn"> Visit</div>
+             </a>
           </div>
         </div>
-      </a>
       <a href="https://fresh-butler.herokuapp.com/" id="flip2">
         <div class="flip">
           <div class="front">
@@ -110,34 +139,11 @@
   <div class="program-bottom">
     <div class="bottom-info">
         <h1>Languages & Frameworks</h1>
+        <!-- <p>[Love, Learning, Fun, Intense-Hatred]</p> -->
     </div>
     <div class="top-skilss">
       <div class="skills">
-        <!-- <div class="node-note">
-          <p> Movable Nodes</p>
-        </div> -->
-        <!-- <div class = "gallery">
-          <div class="clipped-border" id="1">
-            <img src="https://cdn2.iconfinder.com/data/icons/love-and-valentine-3-4/65/142-512.png" id="clipped" title="Ruby-on-rail">
-          </div>
-          <div class="clipped-border" id="2">
-            <img src="https://cdn3.iconfinder.com/data/icons/popular-services-brands-vol-2/512/ruby-on-rails-512.png" id="clipped" title="React">
-          </div>
-          <div class="clipped-border" id="3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1024px-Python-logo-notext.svg.png" id="clipped" title="HTML 5">
-          </div>
-            <div class="clipped-border" id="4">
-            <img src="https://pngimage.net/wp-content/uploads/2018/06/react-icon-png-7.png" id="clipped" title="Javascript">
-          </div>
-          <div class="clipped-border" id="5">
-            <img src="//inf3cti0n95.github.io/img/js.svg" id="clipped" title="Ruby">
-          </div>
-          <div class="clipped-border" id="6">
-            <img src="//inf3cti0n95.github.io/img/html5.svg" id="clipped" title="Python">
-          </div>
-        </div> -->
       </div>
-
     </div>
   </div>
 
@@ -198,19 +204,19 @@ function scrollToContact() {
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 <script>
-var w = 1200, h = 500;
+var w = 700, h = 400;
 
       var labelDistance = 0;
 
-var vis = d3.select(".skills").append("svg:svg").attr("width", w).attr("height", h);
+var vis = d3.select(".skills").append("svg:svg").attr("width", w).attr("height", h).style("float","left");
       var output = d3.select(".skills").append("div");
 
       var nodes = [];
 var languages = {};
-languages["Love"] = ["Ruby", "Ruby-on-rails", "Python"];
-languages["Fun"] = ["Javascript","React","Redux"];
-languages["Intense Hatred"] = ["SCSS"];
-languages["Learning"] = ["Python"];
+languages["(Love)"] = ["Ruby", "Ruby-on-rails", "Python"];
+languages["(Fun)"] = ["Javascript","React","Redux"];
+languages["(Intense Hatred)"] = ["SCSS"];
+languages["(Learning)"] = ["Python"];
 
       var labelAnchors = [];
       var labelAnchorLinks = [];
@@ -310,7 +316,7 @@ vis.selectAll("g").filter(function(d){
       anchorNode.append("svg:circle").attr("r", 0).style("fill", "#FFF");
         anchorNode.append("svg:text").text(function(d, i) {
         return i % 2 == 0 ? "" : d.node.label
-      }).style("fill", "#555").style("font-family", "Raleway").style("font-size", 19);
+      }).style("fill", "white").style("font-family", "Raleway").style("font-size", 19);
 
       var updateLink = function() {
         this.attr("x1", function(d) {

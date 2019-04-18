@@ -1,24 +1,9 @@
 .program-middle {
   height: 70vh;
-  display: flex;
-  justify-content: space-around;
+  // display: flex;
+  // justify-content: space-around;
   background-color: white;
-  .middle-info {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    justify-content: space-around;
-    .intro {
-      width: 55%;
-      font-size: 1.1rem;
-      padding: 30px;
-      margin: auto;
-      border-radius: 24px;
-      box-shadow: 0px 1px 43px 0px rgba(189,189,189,1);
 
-
-    }
-  }
 }
 ///
 .projects {
@@ -65,7 +50,7 @@
     display: flex;
     justify-content: center;
     // margin-bottom: 60px;
-    padding: 30px;
+    padding-bottom: 90px;
 
     h1 {
       // font-family: "Fira Sans";
@@ -80,9 +65,10 @@
     margin: 10px;
   }
   .skills {
-    padding-left: 8%;
+    padding-left: 3%;
     border-radius: 8%;
-      // box-shadow: 0px 1px 43px 0px rgba(189,189,189,1);
+    background: #313131;
+      box-shadow: 0px 1px 43px 0px rgba(189,189,189,1);
       width: 50%;
       height: 95%;
   }
@@ -141,3 +127,12 @@
 
 
 
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .bottom-info h1 {
+    font-size: 1.6rem !important;
+  }
+  .title-box h1 {
+    font-size: 1.6rem !important;
+  }
+}

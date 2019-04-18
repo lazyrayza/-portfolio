@@ -3,7 +3,6 @@
   height: 50px;
   border-radius: 8px;
   margin-left: 300px;
-
 }
 
 .far {
@@ -12,7 +11,7 @@
 
 .start-btn{
   height: 40px;
-  width: 360px;
+  width: 300px;
   background: linear-gradient(45deg, #4286f4, #6ECAD6);
   border-radius: 12px;
   color: white;
@@ -20,6 +19,7 @@
   text-align: center;
   font-size: 1.5rem;
   box-shadow: 0px 1px 43px 0px rgba(0,0,82,1);
+  padding: 4px;
 
     &:hover{
       transform: scale(1.3);
@@ -32,7 +32,7 @@
 
 .contact-btn{
   height: 40px;
-  width: 360px;
+  width: 300px;
   background: linear-gradient(45deg, #4286f4, #6ECAD6);
   border-radius: 12px;
   color: white;
@@ -40,6 +40,8 @@
   text-align: center;
   font-size: 1.5rem;
   box-shadow: 0px 1px 43px 0px rgba(0,0,82,1);
+  padding: 4px;
+
 
     &:hover{
       transform: scale(1.3);
@@ -59,11 +61,17 @@
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
+  .buttons {
+    flex-direction: column;
+        margin: 0% 29% 0% 29%;
+  }
   .start-btn {
     transform: scale(0.7);
+    margin: 0px;
   }
   .contact-btn {
     transform: scale(0.7);
+    margin: 0px ;
   }
 }
 
@@ -71,9 +79,11 @@
 @media (min-width: 576px) {
   .start-btn {
     transform: scale(0.8);
+    margin: 0px;
   }
   .contact-btn {
     transform: scale(0.8);
+    margin: 0px;
   }
 }
 
@@ -98,11 +108,16 @@
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .start-btn {
-    transform: scale(1);
-  }
-  .contact-btn {
-    transform: scale(1);
-  }
-}
+// @media (min-width: 1200px) {
+//   .buttons {
+//     flex-direction: row;
+//     justify-content: space-between;
+//     padding: auto;
+//   }
+//   .start-btn {
+//     transform: scale(1);
+//   }
+//   .contact-btn {
+//     transform: scale(1);
+//   }
+// }
