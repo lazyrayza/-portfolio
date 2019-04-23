@@ -133,7 +133,8 @@ html, body {
 }
 @media (min-width: 100px) and (max-width: 575px) {
   .home-button {
-    transform: scale(0.8);
+    transform: scale(0.5);
+    margin-left: -65%;
   }
   h1 {
     font-size: 1.2rem !important;
