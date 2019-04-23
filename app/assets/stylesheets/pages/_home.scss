@@ -139,6 +139,11 @@ html, body {
     font-size: 1.2rem !important;
   }
 }
+@media (min-width: 768px) {
+  .h1 {
+    font-size: 1.5rem !important;
+  }
+}
 @media(max-width: 800px) {
   h1 {
     font-size: 2rem;
